@@ -4,15 +4,15 @@ import random
 pp = pprint.PrettyPrinter()
 
 board = [
-	[1, 7, 9, 6, 0, 3, 5, 0, 4],
-	[5, 8, 6, 4, 0, 0, 1, 9, 0],
-	[0, 2, 4, 9, 0, 5, 0, 0, 0],
-	[0, 0, 0, 2, 0, 0, 9, 0, 0],
-	[0, 0, 0, 0, 7, 0, 0, 3, 0],
-	[8, 0, 0, 3, 0, 0, 0, 0, 6],
-	[0, 0, 0, 1, 3, 2, 0, 4, 0],
-	[0, 0, 1, 7, 6, 0, 0, 0, 8],
-	[7, 0, 0, 5, 9, 8, 0, 1, 2],
+	[0, 0, 0, 9, 0, 6, 0, 0, 0],
+	[4, 2, 0, 0, 0, 8, 6, 0, 0],
+	[0, 0, 1, 0, 0, 7, 2, 0, 8],
+	[8, 0, 0, 4, 0, 9, 5, 1, 7],
+	[7, 4, 0, 0, 0, 1, 9, 3, 0],
+	[0, 9, 6, 7, 3, 0, 0, 2, 0],
+	[0, 0, 0, 5, 1, 3, 0, 6, 0],
+	[2, 0, 7, 6, 0, 4, 0, 0, 0],
+	[0, 1, 0, 0, 0, 0, 4, 5, 9],
 ]
 
 boxes_on_board = {
@@ -28,7 +28,9 @@ boxes_on_board = {
 }
 
 def solve(board):
-    if is_board_complete(board)
+    if is_board_complete(board):
+        print("This is the final board:")
+        pp.pprint(board)
         return board
     
     empty_positions = get_empty_positions_with_possible_guesses(board)
@@ -37,6 +39,8 @@ def solve(board):
             if len(position_dict[key]) == 1:
                 add_number(board, key, position_dict[key][0])
                 empty_positions.remove(position_dict)
+
+    pp.pprint(board)
     solve(board)
 
 def get_empty_spaces(board):
@@ -95,8 +99,4 @@ def is_board_complete(board):
     
     return True
 
-# print(get_tryable_numbers(board, (1,4)))
-
-pp.pprint(solve(board))
-
-# pp.pprint(board)
+solve(board)
