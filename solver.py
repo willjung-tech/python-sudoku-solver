@@ -27,6 +27,7 @@ boxes_on_board = {
     (2, 2): [(6, 6), (6, 7), (6, 8), (7, 6), (7, 7), (7, 8), (8, 6), (8, 7), (8, 8)],
 }
 
+# Return to this and implement backtracking for higher level puzzles
 def solve(board):
     if is_board_complete(board):
         print("This is the final board:")
